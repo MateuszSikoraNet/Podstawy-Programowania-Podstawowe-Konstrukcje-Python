@@ -1,6 +1,6 @@
-# Podstawy Programowania 2026/2027
+# Podstawy Programowania - podstawowe konstrukcje języka programowania Python
 
-Ćwiczenia z przedmiotu Podstawy Programowania w roku akademickim 2026/2027.
+Ćwiczenia dotyczące podstawowych konstrukcji języka programowania Python z przedmiotu Podstawy Programowania.
 
 ## Jaki jest cel
 
