@@ -1,0 +1,13 @@
+name: Tests
+
+on: [push, pull_request]
+
+jobs:
+  unittest:
+    runs-on: ubuntu-latest
+    container:
+      image: python:3-alpine
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - run: python -m unittest discover -s tests -v
