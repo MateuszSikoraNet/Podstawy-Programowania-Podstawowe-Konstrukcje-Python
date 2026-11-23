@@ -2,6 +2,21 @@
 
 Ćwiczenia dotyczące podstawowych konstrukcji języka programowania Python z przedmiotu Podstawy Programowania.
 
+## Jak utworzyć własne repozytorium z tego szablonu
+
+Zanim rozpoczniesz rozwiązywanie zadań, musisz utworzyć własną kopię tego projektu na swoim koncie GitHub. Projekt ten jest przygotowany jako **szablon (template)**. Aby to zrobić, postępuj zgodnie z poniższymi krokami:
+
+1. Upewnij się, że jesteś zalogowany na swoje konto GitHub.
+2. Na stronie głównej tego repozytorium (nad listą plików, po prawej stronie) znajdź i kliknij zielony przycisk **"Use this template"**.
+3. Z rozwijanego menu wybierz opcję **"Create a new repository"**.
+4. W formularzu tworzenia nowego repozytorium:
+   * **Owner:** Wybierz swoje konto studenta.
+   * **Repository name:** Nazwij swoje repozytorium (np. `Podstawy-Programowania-Imie-Nazwisko`).
+   * **Privacy:** Wybierz **Public** (publiczne).
+5. Kliknij przycisk **"Create repository from template"** na dole strony.
+6. GitHub wygeneruje dla Ciebie nowe repozytorium, zawierające wszystkie pliki z tego szablonu, ale z czystą historią commitów.
+7. Otwórz terminal, sklonuj swoje **nowo utworzone** repozytorium na dysk (`git clone <link-do-twojego-repo>`) i przejdź do instrukcji poniżej.
+
 ## Jaki jest cel
 
 Każde ćwiczenie to para: **mały plik z kodem + plik z testami**. Testy opisują,
@@ -25,14 +40,14 @@ Kod **nie potrzebuje bibliotek zewnętrznych**. Wystarczy Python 3 i moduł
 Każdy temat ma **dwie równoległe wersje**. Tę samą logikę piszesz raz jako
 funkcje, raz jako klasę:
 
-| Katalog | Styl | Plików |
-|---|---|---|
-| `src/functions/` | funkcje (proceduralnie) | 15 |
-| `src/objects/` | klasy (OOP) | 15 |
-| `tests/unit/functions/` | testy wersji funkcyjnej | 15 |
-| `tests/unit/objects/` | testy wersji obiektowej | 15 |
+| Katalog | Styl |
+|---|---|
+| `src/functions/` | funkcje (proceduralnie) |
+| `src/objects/` | klasy (OOP) |
+| `tests/unit/functions/` | testy wersji funkcyjnej |
+| `tests/unit/objects/` | testy wersji obiektowej |
 
-Tematy (po 1 module w każdym stylu):
+Tematy (po jednym module w każdym stylu):
 
 `calculator`, `comparisons`, `conditionals`, `data_types`, `error_handling`,
 `input_output`, `list_operations`, `lists_dicts_tuples`, `loops`,
@@ -62,7 +77,7 @@ Wszystkie komendy uruchamiaj **z głównego katalogu repozytorium**
 (`Podstawy-Programowania-2026-2027/`), bo importy są ścieżkami względnymi
 (`from src.functions.calculator import add`).
 
-### Wszystkie testy naraz (134 testy)
+### Wszystkie testy naraz
 
 ```bash
 python3 -m unittest discover -s tests -v
@@ -71,8 +86,8 @@ python3 -m unittest discover -s tests -v
 ### Testy jednego stylu (katalogu)
 
 ```bash
-python3 -m unittest discover -s tests/unit/functions -v   # 70 testów
-python3 -m unittest discover -s tests/unit/objects   -v   # 64 testy
+python3 -m unittest discover -s tests/unit/functions -v
+python3 -m unittest discover -s tests/unit/objects   -v
 ```
 
 ### Testy jednego modułu
@@ -123,7 +138,7 @@ $ python3 -c "from src.functions.calculator import divide; print(divide(10, 2))"
 5.0
 ```
 
-Analogicznie dla każdego z 15 modułów.
+Analogicznie dla każdego z modułów.
 
 Testy też można odpalać pojedynczymi plikami:
 
