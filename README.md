@@ -11,7 +11,7 @@ Zanim rozpoczniesz rozwiązywanie zadań, musisz utworzyć własną kopię tego 
 3. Z rozwijanego menu wybierz opcję **"Create a new repository"**.
 4. W formularzu tworzenia nowego repozytorium:
    * **Owner:** Wybierz swoje konto studenta.
-   * **Repository name:** Nazwij swoje repozytorium (np. `Podstawy-Programowania-Imie-Nazwisko`).
+   * **Repository name:** Nazwij swoje repozytorium zgodnie z następującym szablonem `grupa-nralbumu-Nazwisko-Imie-PPPKP` (np. `INF-1-12-26-27Z-12345-Sikora-Mateusz-PPPKP`).
    * **Privacy:** Wybierz **Public** (publiczne).
 5. Kliknij przycisk **"Create repository from template"** na dole strony.
 6. GitHub wygeneruje dla Ciebie nowe repozytorium, zawierające wszystkie pliki z tego szablonu, ale z czystą historią commitów.
@@ -149,13 +149,19 @@ python3 -m unittest tests/unit/objects/test_calculator.py -v
 
 ## Tryb pracy krok po kroku
 
-1. Wybierz moduł, np. `loops`.
-2. Przeczytaj testy w `tests/unit/functions/test_loops.py`. Nazwy mówią,
-   czego się spodziewać (`test_factorial_of_negative_number_raises_error`).
-3. Zajrzyj do `src/functions/loops.py`. Komentarze podpowiadają logikę.
+1. Wybierz moduł (np. `loops`).
+2. Przeczytaj testy moduł (np. w `tests/unit/functions/test_loops.py`). Nazwy mówią,
+   czego się spodziewać (np. `test_factorial_of_negative_number_raises_error`).
+3. Zajrzyj do wersji funkcyjnej (np. `src/functions/loops.py`). Komentarze podpowiadają logikę.
 4. Zaimplementuj funkcje, uruchom testy tego modułu.
-5. Gdy są zielone, przejdź do wersji obiektowej: `src/objects/loops.py`.
-6. Na koniec puść całość: `python3 -m unittest discover -s tests -v`.
+5. Gdy są zielone, zrzuć pracę do Gita i wyślij na GitHub
+   (np. `git add -A && git commit -m "Zaimplementowano loops - wersja funkcyjna" && git push`).
+   Rób tak po **każdej** zielonej implementacji. 
+   Lepiej wiele małych commitów niż jeden duży.
+6. Przejdź do wersji obiektowej (np. `src/objects/loops.py`).
+   Po jej zazielenieniu znowu commit i push.
+7. Powtarzaj analogicznie dla każdego z modułów.
+8. Na koniec puść całość testów: `python3 -m unittest discover -s tests -v`.
 
 ## CI
 
