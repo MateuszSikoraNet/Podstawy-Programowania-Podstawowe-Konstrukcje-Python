@@ -33,3 +33,21 @@ class TestListsDictsTuples(unittest.TestCase):
         self.assertEqual(merge_dicts({"a": 1}, {"a": 2, "b": 3}), {"a": 2, "b": 3})
         self.assertEqual(sorted_keys({"b": 2, "a": 1}), ["a", "b"])
 
+    def test_create_dict_stops_at_the_shorter_list(self):
+        self.assertEqual(create_dict(["a"], [1, 2]), {"a": 1})
+        self.assertEqual(create_dict([], []), {})
+
+    def test_get_value_or_default_returns_existing_values(self):
+        # An existing falsy value (0) is a real value, not a missing key.
+        self.assertEqual(get_value_or_default({"a": 0}, "a", 5), 0)
+        self.assertEqual(get_value_or_default({"a": "x"}, "a"), "x")
+        self.assertIsNone(get_value_or_default({}, "a"))
+
+    def test_merge_dicts_does_not_change_the_inputs(self):
+        first, second = {"a": 1}, {"b": 2}
+        self.assertEqual(merge_dicts(first, second), {"a": 1, "b": 2})
+        self.assertEqual(first, {"a": 1})
+        self.assertEqual(second, {"b": 2})
+
+    def test_sorted_keys_sorts_keys_not_values(self):
+        self.assertEqual(sorted_keys({"b": 1, "a": 2, "c": 0}), ["a", "b", "c"])

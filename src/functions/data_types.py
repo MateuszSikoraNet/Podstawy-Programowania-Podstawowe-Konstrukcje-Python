@@ -137,3 +137,102 @@ def aliased_lists():
     # Start with [1], bind a second name to the same list, append 2 via the second name.
     # Return the list seen through the first name - both names refer to one object.
     pass
+
+
+def to_int_with_base(text, base):
+    # Convert text to an integer written in the given base (2, 8, 16...).
+    # With base 0 the prefix decides: "0b" binary, "0o" octal, "0x" hexadecimal.
+    pass
+
+
+def int_representations(value):
+    # Return the tuple (binary, octal, hexadecimal) strings of value, e.g. "0b1010", "0o12", "0xa".
+    pass
+
+
+def complex_parts(value):
+    # Return the tuple (real part, imaginary part, conjugate, absolute value) of a complex number.
+    pass
+
+
+def make_range(start, stop, step):
+    # Return range(start, stop, step). stop is excluded and the range is immutable.
+    pass
+
+
+def make_single_tuple(value):
+    # Return a one-element tuple. (value) is just value in parentheses - the comma makes a tuple.
+    pass
+
+
+def to_bytearray(text):
+    # Return text encoded (utf-8) as a bytearray - the mutable version of bytes.
+    pass
+
+
+def is_hashable(value):
+    # Check if value can be hashed (used as a dict key or set element).
+    # Mutable containers (list, dict, set) are not hashable - hash() raises TypeError.
+    pass
+
+
+def try_add_to_frozenset(items, item):
+    # Try to add item to a frozenset. frozenset is immutable and has no add(), so this raises AttributeError.
+    pass
+
+
+def is_close(a, b):
+    # Check if two floats are equal within a small tolerance (math.isclose), instead of using ==.
+    pass
+
+
+def append_inside_tuple(items, value):
+    # items is a tuple whose first element is a list. Append value to that list and return items.
+    # A tuple is immutable, but the objects inside it can still be mutable.
+    pass
+
+
+def copied_lists():
+    # Start with [1], make a copy, append 2 to the copy.
+    # Return the original list - a copy is a separate object, unlike an alias.
+    pass
+
+
+def dynamic_types():
+    # Assign 5 to a variable, then "five", then None.
+    # Return the tuple of type names it had after each assignment - one name can hold different types.
+    pass
+
+
+def to_set(values):
+    # Return set(values). A set keeps only unique, hashable elements and has no order.
+    pass
+
+
+def to_dict(pairs):
+    # Return dict(pairs) from (key, value) pairs. Keys are unique (the last value wins),
+    # must be hashable, and the dict keeps insertion order.
+    pass
+
+
+def to_tuple(values):
+    # Return tuple(values) - the immutable counterpart of list(values).
+    pass
+
+
+def to_memoryview(data):
+    # Return memoryview(data) - a view of the same bytes buffer, without copying.
+    # Writing through a view of a bytearray changes the bytearray; a view of bytes is read-only.
+    pass
+
+
+def rebound_int():
+    # Assign 5 to a, bind b to a, then do b += 1. Return a.
+    # int is immutable, so += makes b point to a new object and a stays 5 (compare aliased_lists).
+    pass
+
+
+def shallow_copied_nested():
+    # Start with [[1]], make a copy, append 2 to the inner list through the copy.
+    # Return the original - copy() is shallow, so the inner list is shared (compare copied_lists).
+    pass

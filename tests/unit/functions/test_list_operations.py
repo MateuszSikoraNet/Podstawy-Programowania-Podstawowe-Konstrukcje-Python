@@ -36,3 +36,23 @@ class TestListOperations(unittest.TestCase):
         self.assertEqual(index_of([4, 5, 4], 4), 0)
         self.assertEqual(index_of([4, 5, 4], 9), -1)
 
+    def test_extremes_of_negative_and_positive_numbers(self):
+        self.assertEqual(find_max([-3, -1, -5]), -1)
+        self.assertEqual(find_min([3, 2, 7]), 2)
+        self.assertEqual(find_max([2.5, 1]), 2.5)
+
+    def test_average_is_true_division(self):
+        self.assertEqual(average([1, 2]), 1.5)
+
+    def test_transformations_do_not_change_the_input(self):
+        numbers = [3, 1, 3, 2, 1]
+        self.assertEqual(reverse_list(numbers), [1, 2, 3, 1, 3])
+        self.assertEqual(sort_descending(numbers), [3, 3, 2, 1, 1])
+        self.assertEqual(filter_even(numbers), [2])
+        # Order of first appearance, not sorted.
+        self.assertEqual(remove_duplicates(numbers), [3, 1, 2])
+        self.assertEqual(numbers, [3, 1, 3, 2, 1])
+
+    def test_index_of_any_position(self):
+        self.assertEqual(index_of([7, 8, 9], 9), 2)
+        self.assertEqual(index_of([], 1), -1)

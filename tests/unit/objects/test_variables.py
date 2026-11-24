@@ -32,3 +32,21 @@ class TestVariable(unittest.TestCase):
         self.assertEqual(self.variable.get(), 3)
         self.assertEqual(other.get(), 10)
 
+    def test_default_values(self):
+        variable = Variable()
+        self.assertEqual(variable.get(), 0)
+        variable.increment()
+        variable.decrement()
+        variable.decrement()
+        self.assertEqual(variable.get(), -1)
+
+    def test_each_object_keeps_its_own_value(self):
+        other = Variable(10)
+        other.set(99)
+        self.assertEqual(self.variable.get(), 10)
+
+    def test_swap_with_different_types(self):
+        other = Variable("text")
+        self.variable.swap_with(other)
+        self.assertEqual(self.variable.get(), "text")
+        self.assertEqual(other.get(), 10)

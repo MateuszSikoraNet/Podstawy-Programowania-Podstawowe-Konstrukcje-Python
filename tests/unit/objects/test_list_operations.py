@@ -31,3 +31,23 @@ class TestNumberList(unittest.TestCase):
         self.assertEqual(self.numbers.index_of(1), 1)
         self.assertEqual(self.numbers.index_of(9), -1)
 
+    def test_extremes_of_negative_numbers(self):
+        numbers = NumberList([-3, -1, -5])
+        self.assertEqual(numbers.find_max(), -1)
+        self.assertEqual(numbers.find_min(), -5)
+        self.assertEqual(NumberList([4, 2, 6]).find_min(), 2)
+
+    def test_filter_even_keeps_even_numbers(self):
+        self.assertEqual(NumberList([1, 2, 3, 4, -6]).filter_even(), [2, 4, -6])
+
+    def test_methods_do_not_change_the_numbers(self):
+        numbers = NumberList([3, 1, 2])
+        self.assertEqual(numbers.sort_descending(), [3, 2, 1])
+        self.assertEqual(numbers.reverse(), [2, 1, 3])
+        self.assertEqual(numbers.numbers, [3, 1, 2])
+
+    def test_each_object_gets_its_own_empty_list(self):
+        # A [] default would be shared by every NumberList() - use None and create a new list.
+        first = NumberList()
+        first.numbers.append(5)
+        self.assertEqual(NumberList().numbers, [])
