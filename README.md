@@ -32,7 +32,7 @@ Metoda pracy (TDD - Test Driven Development):
 4. Uruchamiasz testy i sprawdzasz, czy są zielone.
 5. Powtarzasz, aż dany moduł przechodzi w całości.
 
-Kod **nie potrzebuje bibliotek zewnętrznych**. Wystarczy Python 3 i moduł
+Kod **nie potrzebuje bibliotek zewnętrznych**. Wystarczy Python 3.10 lub nowszy i moduł
 `unittest` ze standardowej biblioteki.
 
 ## Struktura repozytorium
@@ -49,10 +49,10 @@ funkcje, raz jako klasę:
 
 Tematy (po jednym module w każdym stylu):
 
-`calculator`, `comparisons`, `conditionals`, `data_types`, `error_handling`,
-`input_output`, `list_operations`, `lists_dicts_tuples`, `loops`,
-`nested_statements`, `operators`, `parameters`, `string_operations`,
-`variable_scope`, `variables`
+`calculator`, `comparisons`, `conditionals`, `data_structures`, `data_types`,
+`error_handling`, `function_basics`, `input_output`, `list_operations`,
+`lists_dicts_tuples`, `loops`, `modules_imports`, `nested_statements`, `operators`,
+`parameters`, `string_operations`, `variable_scope`, `variables`
 
 Przykład funkcji i jej test:
 

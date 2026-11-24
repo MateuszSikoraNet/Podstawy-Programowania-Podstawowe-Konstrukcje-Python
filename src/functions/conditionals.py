@@ -31,5 +31,30 @@ def fizz_buzz(value):
 
 
 def classify_temperature(temperature):
-    # Return cold, warm, or hot based on temperature.
+    # Return cold below 15, warm from 15 to below 25, hot from 25 up.
+    pass
+
+
+def clamp_to_limit(value, limit):
+    # If value is greater than limit, replace it with limit. Return value.
+    # A single if without else - nothing happens when the condition is False.
+    pass
+
+
+def is_leap_year(year):
+    # Return True for years divisible by 4, except years divisible by 100 that are not divisible by 400.
+    # Use one condition combining and/or/not.
+    pass
+
+
+def ticket_price(age, is_student):
+    # Return 5 for age below 18. Otherwise check is_student inside that branch (nested if):
+    # return 10 for students and 20 for everyone else.
+    pass
+
+
+def http_status(code):
+    # Use match/case: 200 -> "OK", 404 -> "Not Found", 500 | 502 | 503 -> "Server Error",
+    # any other code from 400 to 499 -> "Client Error" (a case with a guard: case c if ...),
+    # anything else -> "Unknown" (the wildcard case _).
     pass

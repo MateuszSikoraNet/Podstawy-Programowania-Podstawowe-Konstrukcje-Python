@@ -15,6 +15,7 @@ def sum_all(*args):
 
 def build_profile(name, **kwargs):
     # Make a dictionary with name and all keyword values.
+    # Keys keep this order: "name" first, then the keyword arguments in the order they were given.
     pass
 
 
