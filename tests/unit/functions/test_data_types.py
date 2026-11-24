@@ -2,8 +2,11 @@ import unittest
 
 from src.functions.data_types import (
     add_one,
+    aliased_lists,
     append_item,
+    concat_str_int,
     floor_division_type,
+    from_bytes,
     get_type_name,
     is_float,
     is_integer,
@@ -185,4 +188,70 @@ class TestDataTypes(unittest.TestCase):
         self.assertIs(is_nan(float("nan")), True)
         self.assertIs(is_nan(0.0), False)
         self.assertIs(is_nan(None), False)
+
+    def test_to_int_of_float_truncates_toward_zero(self):
+        # int() on a float truncates, it does not round.
+        self.assertEqual(to_int(3.9), 3)
+        self.assertEqual(to_int(-3.9), -3)
+
+    def test_to_float_of_invalid_string_raises_value_error(self):
+        with self.assertRaises(ValueError):
+            to_float("abc")
+
+    def test_to_float_of_none_raises_type_error(self):
+        with self.assertRaises(TypeError):
+            to_float(None)
+
+    def test_concat_str_int_raises_type_error(self):
+        # Python does not convert int to str implicitly.
+        with self.assertRaises(TypeError):
+            concat_str_int("a", 1)
+
+    def test_from_bytes_round_trip_with_non_ascii(self):
+        # "ż" takes 2 bytes in utf-8; encode and decode must round-trip.
+        data = to_bytes("ż")
+        self.assertEqual(data, b"\xc5\xbc")
+        self.assertEqual(len(data), 2)
+        self.assertEqual(from_bytes(data), "ż")
+
+    def test_aliased_names_share_one_mutable_object(self):
+        # b = a does not copy - both names refer to the same list.
+        self.assertEqual(aliased_lists(), [1, 2])
+
+    def test_bytes_indexing_returns_int_not_str(self):
+        # bytes is a sequence of integers, not of one-character strings.
+        data = to_bytes("abc")
+        self.assertEqual(data[0], 97)
+        self.assertEqual(get_type_name(data[0]), "int")
+
+    def test_to_char_of_invalid_code_raises_value_error(self):
+        with self.assertRaises(ValueError):
+            to_char(0x110000)
+
+    def test_to_code_of_multichar_string_raises_type_error(self):
+        with self.assertRaises(TypeError):
+            to_code("AB")
+
+    def test_to_float_of_huge_int_raises_overflow_error(self):
+        # int has no range limit, float does.
+        with self.assertRaises(OverflowError):
+            to_float(10 ** 400)
+
+    def test_to_float_of_infinity(self):
+        result = to_float("inf")
+        self.assertIs(type(result), float)
+        self.assertGreater(result, 10 ** 1000)
+
+    def test_get_type_name_of_dict_set_frozenset(self):
+        self.assertEqual(get_type_name({}), "dict")
+        self.assertEqual(get_type_name(set()), "set")
+        self.assertEqual(get_type_name(frozenset()), "frozenset")
+
+    def test_bool_arithmetic_is_int(self):
+        # bool is a subclass of int, so True + True is the int 2.
+        self.assertEqual(mixed_sum_type(True, True), "int")
+
+    def test_repeat_zero_or_negative_times_is_empty(self):
+        self.assertEqual(repeat("ab", 0), "")
+        self.assertEqual(repeat("ab", -1), "")
 

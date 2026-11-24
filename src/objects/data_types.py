@@ -98,3 +98,16 @@ class TypeConverter:
     def is_nan(self, value):
         # Check if value is NaN. NaN is the only value not equal to itself.
         pass
+
+    def concat_str_int(self, text, number):
+        # Return text + number. Python does not convert implicitly, so this raises TypeError.
+        pass
+
+    def from_bytes(self, data):
+        # Decode bytes to a string (utf-8).
+        pass
+
+    def aliased_lists(self):
+        # Start with [1], bind a second name to the same list, append 2 via the second name.
+        # Return the list seen through the first name - both names refer to one object.
+        pass
